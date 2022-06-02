@@ -15,7 +15,7 @@ namespace NinetiesTV
             // Print("Ordered by Popularity", ShowsByPopularity(shows));
             // Print("Shows with an '&'", ShowsWithAmpersand(shows));
             // Print("Latest year a show aired", MostRecentYear(shows));
-            Print("Average Rating", AverageRating(shows));
+            // Print("Average Rating", AverageRating(shows));
             Print("Shows only aired in the 90s", OnlyInNineties(shows));
             Print("Top Three Shows", TopThreeByRating(shows));
             Print("Shows starting with 'The'", TheShows(shows));
@@ -66,6 +66,7 @@ namespace NinetiesTV
         {
             return shows.Where(s => s.Name.Contains("&")).ToList();
         }
+
         // 5. Return the most recent year that any of the shows aired.
         static int MostRecentYear(List<Show> shows)
         {
@@ -76,7 +77,8 @@ namespace NinetiesTV
         // 6. Return the average IMDB rating for all the shows.
         static double AverageRating(List<Show> shows)
         {
-            throw new NotImplementedException();S
+            double avgRating = shows.Average(s => s.ImdbRating);
+            return avgRating;
         }
 
         // 7. Return the shows that started and ended in the 90s.
