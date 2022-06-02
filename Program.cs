@@ -21,7 +21,7 @@ namespace NinetiesTV
             // Print("Shows starting with 'The'", TheShows(shows));
             // Print("All But the Worst", AllButWorst(shows));
             // Print("Shows with Few Episodes", FewEpisodes(shows));
-            Print("Shows Sorted By Duration", ShowsByDuration(shows));
+            // Print("Shows Sorted By Duration", ShowsByDuration(shows));
             Print("Comedies Sorted By Rating", ComediesByRating(shows));
             Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
             Print("Most Episodes", MostEpisodes(shows));
@@ -115,7 +115,7 @@ namespace NinetiesTV
         //     Assume the number of years between the start and end years is the number of years the show was on.
         static List<Show> ShowsByDuration(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.OrderByDescending(s => s.EndYear - s.StartYear).ToList();
         }
 
         // 13. Return the names of the comedy shows sorted by IMDB rating.
