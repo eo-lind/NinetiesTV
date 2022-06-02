@@ -18,7 +18,7 @@ namespace NinetiesTV
             // Print("Average Rating", AverageRating(shows));
             // Print("Shows only aired in the 90s", OnlyInNineties(shows));
             // Print("Top Three Shows", TopThreeByRating(shows));
-            Print("Shows starting with 'The'", TheShows(shows));
+            // Print("Shows starting with 'The'", TheShows(shows));
             Print("All But the Worst", AllButWorst(shows));
             Print("Shows with Few Episodes", FewEpisodes(shows));
             Print("Shows Sorted By Duration", ShowsByDuration(shows));
@@ -96,7 +96,7 @@ namespace NinetiesTV
         // 9. Return the shows whose name starts with the word "The".
         static List<Show> TheShows(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.Name.StartsWith("The")).ToList();
         }
 
         // 10. Return all shows except for the lowest rated show.
