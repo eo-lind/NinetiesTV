@@ -23,7 +23,7 @@ namespace NinetiesTV
             // Print("Shows with Few Episodes", FewEpisodes(shows));
             // Print("Shows Sorted By Duration", ShowsByDuration(shows));
             // Print("Comedies Sorted By Rating", ComediesByRating(shows));
-            Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
+            // Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
             Print("Most Episodes", MostEpisodes(shows));
             Print("Ended after 2000", EndedFirstAfterTheMillennium(shows));
             Print("Best Drama", BestDrama(shows));
@@ -127,14 +127,14 @@ namespace NinetiesTV
         // 14. Return the shows with more than one genre ordered by their starting year.
         static List<Show> WithMultipleGenresByStartYear(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.Genres.Count() > 1).OrderBy(s => s.StartYear).ToList();
         }
 
-        // 15. Return the show with the most episodes.
-        static Show MostEpisodes(List<Show> shows)
-        {
-            throw new NotImplementedException();
-        }
+        // // 15. Return the show with the most episodes.
+        // static Show MostEpisodes(List<Show> shows)
+        // {
+        //     // return shows.Where(s => s.EpisodeCount < 100).ToList();
+        // }
 
         // 16. Order the shows by their ending year then return the first 
         //     show that ended on or after the year 2000.
