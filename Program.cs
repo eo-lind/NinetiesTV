@@ -24,8 +24,8 @@ namespace NinetiesTV
             // Print("Shows Sorted By Duration", ShowsByDuration(shows));
             // Print("Comedies Sorted By Rating", ComediesByRating(shows));
             // Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
-            Print("Most Episodes", MostEpisodes(shows));
-            Print("Ended after 2000", EndedFirstAfterTheMillennium(shows));
+            // Print("Most Episodes", MostEpisodes(shows));
+            // Print("Ended after 2000", EndedFirstAfterTheMillennium(shows));
             Print("Best Drama", BestDrama(shows));
             Print("All But Best Drama", AllButBestDrama(shows));
             Print("Good Crime Shows", GoodCrimeShows(shows));
@@ -137,9 +137,12 @@ namespace NinetiesTV
             return shows.OrderByDescending(s => s.EpisodeCount).First();
         }
 
+
+        // 16. Order the shows by their ending year then return the first 
+        //     show that ended on or after the year 2000.
         static Show EndedFirstAfterTheMillennium(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.EndYear >= 2000).OrderBy(s => s.EndYear).First();
         }
 
         // 17. Order the shows by rating (highest first) 
