@@ -16,7 +16,7 @@ namespace NinetiesTV
             // Print("Shows with an '&'", ShowsWithAmpersand(shows));
             // Print("Latest year a show aired", MostRecentYear(shows));
             // Print("Average Rating", AverageRating(shows));
-            Print("Shows only aired in the 90s", OnlyInNineties(shows));
+            // Print("Shows only aired in the 90s", OnlyInNineties(shows));
             Print("Top Three Shows", TopThreeByRating(shows));
             Print("Shows starting with 'The'", TheShows(shows));
             Print("All But the Worst", AllButWorst(shows));
@@ -84,7 +84,7 @@ namespace NinetiesTV
         // 7. Return the shows that started and ended in the 90s.
         static List<Show> OnlyInNineties(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.StartYear >= 1990 && s.EndYear < 2000).ToList();
         }
 
         // 8. Return the top three highest rated shows.
