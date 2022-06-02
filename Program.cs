@@ -130,11 +130,11 @@ namespace NinetiesTV
             return shows.Where(s => s.Genres.Count() > 1).OrderBy(s => s.StartYear).ToList();
         }
 
-        // // 15. Return the show with the most episodes.
-        // static Show MostEpisodes(List<Show> shows)
-        // {
-        //     // return shows.Where(s => s.EpisodeCount < 100).ToList();
-        // }
+        // 15. Return the show with the most episodes.
+        static List<Show> MostEpisodes(List<Show> shows)
+        {
+            return shows.OrderByDescending(s => s.EpisodeCount).Take(1).ToList();
+        }
 
         // 16. Order the shows by their ending year then return the first 
         //     show that ended on or after the year 2000.
