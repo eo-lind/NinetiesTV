@@ -30,7 +30,7 @@ namespace NinetiesTV
             // Print("All But Best Drama", AllButBestDrama(shows));
             // Print("Good Crime Shows", GoodCrimeShows(shows));
             // Print("Long-running, Top-rated", FirstLongRunningTopRated(shows));
-            Print("Most Words in Title", WordiestName(shows));
+            // Print("Most Words in Title", WordiestName(shows));
             Print("All Names", AllNamesWithCommas(shows));
             Print("All Names with And", AllNamesWithCommasPlsAnd(shows));
         }
@@ -180,13 +180,14 @@ namespace NinetiesTV
         // 22. Return the names of all shows as a single string seperated by a comma and a space.
         static string AllNamesWithCommas(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return String.Join(", ", shows.Select(s => s.Name));
         }
 
         // 23. Do the same as above, but put the word "and" between the second-to-last and last show name.
         static string AllNamesWithCommasPlsAnd(List<Show> shows)
         {
-            throw new NotImplementedException();
+            string allButLast = String.Join(", ", shows.Select(s => s.Name).Take(shows.Count - 1));
+            return allButLast + ", and " + shows.Select( s => s.Name).LastOrDefault();
         }
 
 
