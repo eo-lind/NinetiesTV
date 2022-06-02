@@ -17,7 +17,7 @@ namespace NinetiesTV
             // Print("Latest year a show aired", MostRecentYear(shows));
             // Print("Average Rating", AverageRating(shows));
             // Print("Shows only aired in the 90s", OnlyInNineties(shows));
-            Print("Top Three Shows", TopThreeByRating(shows));
+            // Print("Top Three Shows", TopThreeByRating(shows));
             Print("Shows starting with 'The'", TheShows(shows));
             Print("All But the Worst", AllButWorst(shows));
             Print("Shows with Few Episodes", FewEpisodes(shows));
@@ -90,7 +90,7 @@ namespace NinetiesTV
         // 8. Return the top three highest rated shows.
         static List<Show> TopThreeByRating(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.OrderByDescending(s => s.ImdbRating).Take(3).ToList();
         }
 
         // 9. Return the shows whose name starts with the word "The".
