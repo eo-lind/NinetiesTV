@@ -149,7 +149,7 @@ namespace NinetiesTV
         //     and return the first show with genre of drama.
         static Show BestDrama(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.Genres.Contains("Drama")).OrderByDescending(s => s.ImdbRating).First();
         }
 
         // 18. Return all dramas except for the highest rated.
