@@ -10,9 +10,9 @@ namespace NinetiesTV
         {
             List<Show> shows = DataLoader.GetShows();
 
-            Print("All Names", Names(shows));
-            Print("Alphabetical Names", NamesAlphabetically(shows));
-            Print("Ordered by Popularity", ShowsByPopularity(shows));
+            // Print("All Names", Names(shows));
+            // Print("Alphabetical Names", NamesAlphabetically(shows));
+            // Print("Ordered by Popularity", ShowsByPopularity(shows));
             Print("Shows with an '&'", ShowsWithAmpersand(shows));
             Print("Latest year a show aired", MostRecentYear(shows));
             Print("Average Rating", AverageRating(shows));
@@ -52,13 +52,13 @@ namespace NinetiesTV
         // 2. Return a list of show names ordered alphabetically.
         static List<string> NamesAlphabetically(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.OrderBy(s => s.Name).Select(s => s.Name).ToList();
         }
 
         // 3. Return a list of shows ordered by their IMDB Rating with the highest rated show first.
         static List<Show> ShowsByPopularity(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.OrderByDescending(s => s.ImdbRating).ToList();
         }
 
         // 4. Return a list of shows whose title contains an & character.
