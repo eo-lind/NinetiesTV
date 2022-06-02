@@ -19,7 +19,7 @@ namespace NinetiesTV
             // Print("Shows only aired in the 90s", OnlyInNineties(shows));
             // Print("Top Three Shows", TopThreeByRating(shows));
             // Print("Shows starting with 'The'", TheShows(shows));
-            Print("All But the Worst", AllButWorst(shows));
+            // Print("All But the Worst", AllButWorst(shows));
             Print("Shows with Few Episodes", FewEpisodes(shows));
             Print("Shows Sorted By Duration", ShowsByDuration(shows));
             Print("Comedies Sorted By Rating", ComediesByRating(shows));
@@ -102,7 +102,7 @@ namespace NinetiesTV
         // 10. Return all shows except for the lowest rated show.
         static List<Show> AllButWorst(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.OrderBy(s => s.ImdbRating).Skip(1).ToList();
         }
 
         // 11. Return the names of the shows that had fewer than 100 episodes.
