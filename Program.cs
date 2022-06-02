@@ -20,7 +20,7 @@ namespace NinetiesTV
             // Print("Top Three Shows", TopThreeByRating(shows));
             // Print("Shows starting with 'The'", TheShows(shows));
             // Print("All But the Worst", AllButWorst(shows));
-            Print("Shows with Few Episodes", FewEpisodes(shows));
+            // Print("Shows with Few Episodes", FewEpisodes(shows));
             Print("Shows Sorted By Duration", ShowsByDuration(shows));
             Print("Comedies Sorted By Rating", ComediesByRating(shows));
             Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
@@ -108,7 +108,7 @@ namespace NinetiesTV
         // 11. Return the names of the shows that had fewer than 100 episodes.
         static List<string> FewEpisodes(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.EpisodeCount < 100).Select(s => s.Name).ToList();
         }
 
         // 12. Return all shows ordered by the number of years on air.
