@@ -30,7 +30,7 @@ namespace NinetiesTV
             // Print("All But Best Drama", AllButBestDrama(shows));
             // Print("Good Crime Shows", GoodCrimeShows(shows));
             // Print("Long-running, Top-rated", FirstLongRunningTopRated(shows));
-            // Print("Most Words in Title", WordiestName(shows));
+            Print("Most Words in Title", WordiestName(shows));
             Print("All Names", AllNamesWithCommas(shows));
             Print("All Names with And", AllNamesWithCommasPlsAnd(shows));
         }
@@ -174,7 +174,7 @@ namespace NinetiesTV
         // 21. Return the show with the most words in the name.
         static Show WordiestName(List<Show> shows)
         {
-            return shows.Where(s => s.Name.Split(' ').Length == shows.Max(s => s.Name.Split(' ').Length)).First();
+            return shows.OrderByDescending(s => s.Name.Split(" ").Count()).First();
         }
 
         // 22. Return the names of all shows as a single string seperated by a comma and a space.
