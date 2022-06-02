@@ -26,11 +26,11 @@ namespace NinetiesTV
             // Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
             // Print("Most Episodes", MostEpisodes(shows));
             // Print("Ended after 2000", EndedFirstAfterTheMillennium(shows));
-            Print("Best Drama", BestDrama(shows));
-            Print("All But Best Drama", AllButBestDrama(shows));
-            Print("Good Crime Shows", GoodCrimeShows(shows));
-            Print("Long-running, Top-rated", FirstLongRunningTopRated(shows));
-            Print("Most Words in Title", WordieastName(shows));
+            // Print("Best Drama", BestDrama(shows));
+            // Print("All But Best Drama", AllButBestDrama(shows));
+            // Print("Good Crime Shows", GoodCrimeShows(shows));
+            // Print("Long-running, Top-rated", FirstLongRunningTopRated(shows));
+            // Print("Most Words in Title", WordiestName(shows));
             Print("All Names", AllNamesWithCommas(shows));
             Print("All Names with And", AllNamesWithCommasPlsAnd(shows));
         }
@@ -168,13 +168,13 @@ namespace NinetiesTV
         //     with an IMDB rating of less than 8.0 ordered alphabetically.
         static Show FirstLongRunningTopRated(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.EndYear - s.StartYear > 10 && s.ImdbRating < 8.0).OrderBy(s => s.Name).First();
         }
 
         // 21. Return the show with the most words in the name.
-        static Show WordieastName(List<Show> shows)
+        static Show WordiestName(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.Name.Split(' ').Length == shows.Max(s => s.Name.Split(' ').Length)).First();
         }
 
         // 22. Return the names of all shows as a single string seperated by a comma and a space.
