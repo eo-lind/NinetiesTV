@@ -22,7 +22,7 @@ namespace NinetiesTV
             // Print("All But the Worst", AllButWorst(shows));
             // Print("Shows with Few Episodes", FewEpisodes(shows));
             // Print("Shows Sorted By Duration", ShowsByDuration(shows));
-            Print("Comedies Sorted By Rating", ComediesByRating(shows));
+            // Print("Comedies Sorted By Rating", ComediesByRating(shows));
             Print("More Than One Genre, Sorted by Start", WithMultipleGenresByStartYear(shows));
             Print("Most Episodes", MostEpisodes(shows));
             Print("Ended after 2000", EndedFirstAfterTheMillennium(shows));
@@ -121,7 +121,7 @@ namespace NinetiesTV
         // 13. Return the names of the comedy shows sorted by IMDB rating.
         static List<string> ComediesByRating(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.Genres.Contains("Comedy")).OrderByDescending(s => s.ImdbRating).Select(s => $"{s.Name} - {s.ImdbRating}").ToList();
         }
 
         // 14. Return the shows with more than one genre ordered by their starting year.
