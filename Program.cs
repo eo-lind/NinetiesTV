@@ -35,6 +35,7 @@ namespace NinetiesTV
             // Print("All Names with And", AllNamesWithCommasPlsAnd(shows));
             // Print("Genres of Shows That Started in the 80s", EightiesGenres(shows));
             // Print("Genres", AllGenres(shows));
+            // Print("Number of Shows Aired Between 1987 and 2017", Shows87To18(shows));
         }
 
         /**************************************************************************************************
@@ -218,6 +219,15 @@ namespace NinetiesTV
             return shows.SelectMany(s => s.Genres).Distinct().ToList();
         }
         // 3. Print the years 1987 - 2018 along with the number of shows that started in each year (note many years will have zero shows)
+        public static List<string> Shows87To18(List<Show> shows)
+        {
+            return shows
+                .Where(s => s.StartYear > 1986 && s.StartYear < 2019)
+                .GroupBy(s => s.StartYear)
+                .Select(yrgrp => $"{yrgrp.Key} - {yrgrp.Count()}")
+                .ToList();
+        }
+
         // 4. Assume each episode of a comedy is 22 minutes long and each episode of a show that isn't a comedy is 42 minutes. How long would it take to watch every episode of each show?
         // 5. Assume each show ran each year between its start and end years (which isn't true), which year had the highest average IMDB rating.
 
