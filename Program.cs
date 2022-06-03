@@ -36,8 +36,9 @@ namespace NinetiesTV
             // Print("Genres of Shows That Started in the 80s", EightiesGenres(shows));
             // Print("Genres", AllGenres(shows));
             // Print("Number of Shows Aired Between 1987 and 2017", Shows87To18(shows));
-            Print("Total Runtime version 1", RuntimeV1(shows));
-            Print("Total Runtime version 2", RuntimeV2(shows));
+            // Print("Total Runtime version 1", RuntimeV1(shows));
+            // Print("Total Runtime version 2", RuntimeV2(shows));
+            Print("Highest Average Rating Year", HighestAvgRatingYear(shows));
         }
 
         /**************************************************************************************************
@@ -244,11 +245,14 @@ namespace NinetiesTV
         }
 
         // 5. Assume each show ran each year between its start and end years (which isn't true), which year had the highest average IMDB rating.
-        // public static int Runtime(List<Show> shows)
-        // {
-        //     return shows.SelectMany(s => Enumerable.Range(s.StartYear, s.EndYear))
-        //     Where(s => s.Genres.Contains("Crime") && s.ImdbRating > 7.0).Count();
-        // }
+        // *******************Don't actually understand this one******************* //
+        public static int HighestAvgRatingYear(List<Show> shows)
+        {
+            return shows.SelectMany(s => Enumerable.Range(s.StartYear, s.EndYear - s.StartYear + 1).Select(y => new {Year = y, Show = s}))
+            .GroupBy(showYear => showYear.Year)
+            .OrderByDescending(showYearGroup => showYearGroup.Average(sg => sg.Show.ImdbRating))
+            .First().Key;
+        }
 
 
         /**************************************************************************************************
