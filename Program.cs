@@ -31,8 +31,8 @@ namespace NinetiesTV
             // Print("Good Crime Shows", GoodCrimeShows(shows));
             // Print("Long-running, Top-rated", FirstLongRunningTopRated(shows));
             // Print("Most Words in Title", WordiestName(shows));
-            Print("All Names", AllNamesWithCommas(shows));
-            Print("All Names with And", AllNamesWithCommasPlsAnd(shows));
+            // Print("All Names", AllNamesWithCommas(shows));
+            // Print("All Names with And", AllNamesWithCommasPlsAnd(shows));
         }
 
         /**************************************************************************************************
