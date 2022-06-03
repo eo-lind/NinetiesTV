@@ -36,6 +36,8 @@ namespace NinetiesTV
             // Print("Genres of Shows That Started in the 80s", EightiesGenres(shows));
             // Print("Genres", AllGenres(shows));
             // Print("Number of Shows Aired Between 1987 and 2017", Shows87To18(shows));
+            Print("Total Runtime version 1", RuntimeV1(shows));
+            Print("Total Runtime version 2", RuntimeV2(shows));
         }
 
         /**************************************************************************************************
@@ -229,8 +231,24 @@ namespace NinetiesTV
         }
 
         // 4. Assume each episode of a comedy is 22 minutes long and each episode of a show that isn't a comedy is 42 minutes. How long would it take to watch every episode of each show?
-        // 5. Assume each show ran each year between its start and end years (which isn't true), which year had the highest average IMDB rating.
+        static int RuntimeV1(List<Show> shows)
+        {
+            int numOfComedies = shows.Where(s => s.Genres.Contains("Comedy")).Count();
+            int numOfNotFunnies = shows.Where(s => !s.Genres.Contains("Comedy")).Count();
+            return numOfComedies*22 + numOfNotFunnies*42;
+        }
 
+        static int RuntimeV2(List<Show> shows)
+        {
+            return (shows.Where(s => s.Genres.Contains("Comedy")).Count() * 22) + (shows.Where(s => !s.Genres.Contains("Comedy")).Count() * 42);
+        }
+
+        // 5. Assume each show ran each year between its start and end years (which isn't true), which year had the highest average IMDB rating.
+        // public static int Runtime(List<Show> shows)
+        // {
+        //     return shows.SelectMany(s => Enumerable.Range(s.StartYear, s.EndYear))
+        //     Where(s => s.Genres.Contains("Crime") && s.ImdbRating > 7.0).Count();
+        // }
 
 
         /**************************************************************************************************
